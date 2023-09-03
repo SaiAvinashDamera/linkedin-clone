@@ -1,0 +1,23 @@
+.feedOption {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 4px;
+  border-radius: 5px;
+}
+
+.feedOption:hover {
+  background-color: #eee;
+}
+
+.feedOption__icon {
+  margin-right: 4px;
+}
+
+.feedOption > p {
+  user-select: none;
+  font-weight: 600;
+  font-size: 14px;
+  color: #555;
+}
