@@ -1,0 +1,6 @@
+.widgets {
+  display: flex;
+  background-color: white;
+  padding: 10px;
+  height: fit-content;
+}

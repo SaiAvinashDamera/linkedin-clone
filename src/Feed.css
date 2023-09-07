@@ -1,21 +1,21 @@
 .feed {
   display: flex;
-  flex: 0.5;
+  width: 35em;
   flex-direction: column;
   margin: 0 20px;
 }
 
 /* Top Part */
 
-.feed__top {
-  display: flex;
-  align-items: center;
-}
-
 .feed__sharebox {
   background-color: white;
   border-radius: 10px;
   border: 1px solid lightgray;
+}
+
+.feed__top {
+  display: flex;
+  align-items: center;
 }
 
 .feed__icon {
@@ -28,6 +28,10 @@
 
 .feed__inputContainer {
   display: flex;
+  flex: 1;
+}
+
+.feed__input {
   border: 1px solid gray;
   border-radius: 30px;
   display: flex;
@@ -40,14 +44,20 @@
   cursor: pointer;
 }
 
-.feed__inputContainer:hover {
-  background-color: #eee;
+.feed__input > form {
+  display: flex;
+  width: 100%;
 }
 
-.feed__inputContainer > p {
-  font-weight: 600;
-  font-size: 16px;
-  user-select: none;
+.feed__input > form > input {
+  border: none;
+  flex: 1;
+  outline-width: 0;
+  font-size: 14px;
+}
+
+.feed__input > form > button {
+  display: none;
 }
 
 /* Bottom Part */
@@ -61,7 +71,6 @@
 
 .feed__filter {
   display: flex;
-
   align-items: center;
 }
 
