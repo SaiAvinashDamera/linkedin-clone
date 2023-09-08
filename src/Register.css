@@ -1,0 +1,97 @@
+.register {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  background-color: #f3f2ef;
+}
+.register__main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.register__header {
+  width: 95%;
+  max-width: 65em;
+  margin-top: 20px;
+  display: flex;
+}
+
+.header__left {
+  display: flex;
+  justify-content: start;
+}
+
+.register__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.body__heading {
+  margin-block: 20px;
+  font-size: 32px;
+}
+
+.siginup__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 22em;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.siginup__container > form > input {
+  width: 23em;
+  height: 2em;
+  padding-inline: 15px;
+  margin-bottom: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  border-width: 1px;
+}
+
+.siginup__container > form > input:hover {
+  background-color: #eee;
+  box-shadow: 0px 0px 0px 1px black;
+}
+
+.siginup__container > form > p {
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 14px;
+
+  color: #555;
+}
+
+.body__agreement {
+  text-align: center;
+  font-size: 11px;
+  margin-bottom: 15px;
+}
+
+.register__signin {
+  margin-block: 10px;
+  font-size: 14px;
+}
+
+.register__signin > span {
+  font-weight: 600;
+  color: #0a66c2;
+  cursor: pointer;
+}
+
+.register__signin > span:hover {
+  text-decoration: underline;
+}
+
+.register__gethelp {
+  margin-block: 20px;
+  font-size: 12px;
+  color: #444;
+}

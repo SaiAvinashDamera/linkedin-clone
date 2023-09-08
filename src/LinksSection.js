@@ -3,10 +3,18 @@ import "./LinksSection.css";
 
 function LinksSection({ links }) {
   return (
-    <div>
-      {links.map((data) => (
-        <h3>{data.id}</h3>
-      ))}
+    <div className="links__section">
+      {links.map((data) => {
+        return (
+          <div className="section__col">
+            <h4>{data.id}</h4>
+
+            {data.links.map((link) => {
+              return <p>{link}</p>;
+            })}
+          </div>
+        );
+      })}
     </div>
   );
 }

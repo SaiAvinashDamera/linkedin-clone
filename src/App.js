@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import Login from "./Login";
 import { selectUser } from "./features/userSlice";
 import Widgets from "./Widgets";
+import Register from "./Register";
 
 function App() {
   const user = useSelector(selectUser);

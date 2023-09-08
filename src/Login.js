@@ -3,6 +3,7 @@ import "./Login.css";
 import LoginHeader from "./LoginHeader";
 import "./Buttons.css";
 import LinksSection from "./LinksSection";
+import { auth } from "./firebase";
 
 function Login() {
   const links = [
@@ -49,6 +50,22 @@ function Login() {
     },
   ];
 
+  const footer_links = [
+    "About",
+    "Accessibilty",
+    "UserAgreement",
+    "Privacy Policy",
+    "Cookie Policy",
+    "Brand Policy",
+    "Guest Controls",
+    "Community Guidelines",
+    "Language",
+  ];
+
+  const loginToApp = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="login">
       <LoginHeader />
@@ -73,7 +90,7 @@ function Login() {
           </div>
           <div className="login__divider">&emsp;or&emsp;</div>
           <div
-            className="login__googleLogo buttonColorBorder"
+            className="buttonColorBorder"
             style={{
               width: 330,
               paddingInline: 15,
@@ -83,7 +100,7 @@ function Login() {
               color: "#555",
               borderColor: "lightgray",
             }}>
-            Continue with Google ▼
+            Continue with Google
           </div>
           <div
             className="buttonColorBorder"
@@ -109,10 +126,25 @@ function Login() {
 
       <div className="login__bottom">
         <div className="bottom__links">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png" />
+          <img
+            className="bottom__logo"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png"
+          />
           <LinksSection links={links} />
         </div>
-        <div className="footer">footer</div>
+        <div className="footer">
+          <div className="footerContainer">
+            <img
+              className="bottom__logo"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png"
+            />
+            <p>© 2023</p>
+
+            {footer_links.map((link) => (
+              <a>{link}</a>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

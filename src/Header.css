@@ -3,15 +3,21 @@
   top: 0;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   background-color: white;
+  width: 100%;
 
   padding-top: 5px;
   padding-bottom: 5px;
 
-  width: 100%;
-
   z-index: 5;
+}
+
+.headerContainer {
+  display: flex;
+  width: 95%;
+  max-width: 72em;
+  justify-content: space-between;
 }
 
 .header__left {
@@ -20,9 +26,9 @@
 }
 
 .header__left > img {
+  display: flex;
   object-fit: contain;
   height: 40px;
-  margin-right: 10px;
   cursor: pointer;
   -webkit-user-drag: none;
 }
@@ -43,7 +49,7 @@
   border: none;
   background: none;
 
-  font-size: 15px;
+  justify-content: end;
   font-weight: 400;
   width: 250px;
 }

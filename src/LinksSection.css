@@ -1,0 +1,31 @@
+.links__section {
+  display: flex;
+  justify-content: flex-end;
+  width: 95%;
+  max-width: 72em;
+}
+
+.section__col {
+  display: flex;
+  flex-direction: column;
+  width: 14em;
+}
+
+.section__col > h4 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.section__col > p {
+  margin-bottom: 5px;
+  color: gray;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.section__col > p:hover {
+  text-decoration: underline;
+  color: #0a66c2;
+}
