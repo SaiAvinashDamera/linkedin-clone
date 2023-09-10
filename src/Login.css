@@ -61,6 +61,7 @@
 }
 
 .login__divider::before {
+  margin-left: 10px;
   height: 1px;
   width: auto;
   background-color: rgb(0 0 0 / 0.35);
@@ -77,6 +78,7 @@
 }
 
 .login__divider::after {
+  margin-right: 10px;
   height: 1px;
   width: auto;
   background-color: rgb(0 0 0 / 0.35);
@@ -113,7 +115,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  bottom: 0;
+  position: relative;
   width: 100%;
   background-color: #f3f2ef;
 }
@@ -138,7 +140,6 @@
   width: 100%;
   justify-content: center;
   background-color: white;
-  padding-block: 10px;
 
   color: gray;
   font-size: 10px;
@@ -150,9 +151,8 @@
   justify-content: space-between;
   max-width: 120em;
   width: 95%;
-}
-
-.footerContainer > p {
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .footerContainer > a {

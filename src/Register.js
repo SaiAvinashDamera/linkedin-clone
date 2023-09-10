@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Register.css";
 import "./Buttons.css";
+import { auth } from "./firebase";
+import { login } from "./features/userSlice";
+import { useDispatch } from "react-redux";
 
 function Register() {
   const footer_links = [
@@ -14,6 +17,38 @@ function Register() {
     "Community Guidelines",
     "Language",
   ];
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
+
+  const register = () => {
+    if (!name) {
+      alert("Please enter a full name");
+    } else {
+      auth
+        .createUserWithEmailAndPassword(email, password)
+        .then((userAuth) => {
+          userAuth.user
+            .updateProfile({
+              displayName: name,
+            })
+            .then(() => {
+              dispatch(
+                login({
+                  email: userAuth.user.email,
+                  uid: userAuth.user.uid,
+                  displayName: name,
+                })
+              );
+            });
+        })
+        .catch((error) => alert(error.message));
+    }
+  };
+
   return (
     <div className="register">
       <div className="register__main">
@@ -29,10 +64,27 @@ function Register() {
           </div>
           <div className="siginup__container">
             <form>
+              <p>Full name</p>
+              <input
+                type="name"
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+              />
               <p>Email or phone number</p>
-              <input type="email" />
+              <input
+                type="email"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
               <p>Password (6+ characters)</p>
-              <input type="password" />
+              <input
+                type="password"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
             </form>
             <div className="body__agreement">
               By clicking Agree & Join, you agree to the LinkedIn User
@@ -40,7 +92,10 @@ function Register() {
             </div>
             <div
               className="buttonSolid"
-              style={{ width: 330, padding: 15, fontSize: 16 }}>
+              style={{ width: 330, padding: 15, fontSize: 16 }}
+              onClick={() => {
+                register();
+              }}>
               Agree & Join
             </div>
             <div className="login__divider">&emsp;or&emsp;</div>
@@ -59,27 +114,27 @@ function Register() {
               Continue with Google
             </div>
             <div className="register__signin">
-              Already on LinkedIn? <span>Sign in</span>
+              Already on LinkedIn? <a>Sign in</a>
             </div>
           </div>
 
           <div className="register__signin register__gethelp">
-            Looking to create a page for a business? <span>Get help</span>
+            Looking to create a page for a business? <a>Get help</a>
           </div>
         </div>
+      </div>
 
-        <div className="footer">
-          <div className="footerContainer">
-            <img
-              className="bottom__logo"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png"
-            />
-            <p>© 2023</p>
+      <div className="footer">
+        <div className="footerContainer">
+          <img
+            className="bottom__logo"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png"
+          />
+          <p>© 2023</p>
 
-            {footer_links.map((link) => (
-              <a>{link}</a>
-            ))}
-          </div>
+          {footer_links.map((link) => (
+            <a>{link}</a>
+          ))}
         </div>
       </div>
     </div>

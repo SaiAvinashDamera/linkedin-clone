@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import LoginHeader from "./LoginHeader";
 import "./Buttons.css";
 import LinksSection from "./LinksSection";
 import { auth } from "./firebase";
+import { useDispatch } from "react-redux";
+import { login } from "./features/userSlice";
 
 function Login() {
   const links = [
@@ -62,8 +64,26 @@ function Login() {
     "Language",
   ];
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const dispatch = useDispatch();
+
   const loginToApp = (e) => {
     e.preventDefault();
+
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((userAuth) => {
+        dispatch(
+          login({
+            email: userAuth.user.email,
+            uid: userAuth.user.uid,
+            displayName: userAuth.user.displayName,
+          })
+        );
+      })
+      .catch((error) => alert(error));
   };
 
   return (
@@ -76,16 +96,27 @@ function Login() {
           </div>
           <form>
             <p>Email or phone</p>
-            <input type="text" />
+            <input
+              type="text"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
             <p>Password</p>
-            <input type="password" />
+            <input
+              type="password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
           </form>
 
           <div className="login__forgotPassword">Forgot password?</div>
 
           <div
             className="buttonSolid"
-            style={{ width: 330, padding: 15, fontSize: 16 }}>
+            style={{ width: 330, padding: 15, fontSize: 16 }}
+            onClick={loginToApp}>
             Sign in
           </div>
           <div className="login__divider">&emsp;or&emsp;</div>
