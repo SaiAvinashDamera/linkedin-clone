@@ -8,6 +8,8 @@ import Register from "./Register";
 import PostModal from "./PostModal";
 import Home from "./Home";
 
+import { Routes, Route } from "react-router-dom";
+
 function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
@@ -48,7 +50,12 @@ function App() {
     <div
       className="root"
       style={{ width: windowSize.width, height: windowSize.height }}>
-      {!user ? <Login /> : <Home />}
+      <Routes>
+        <Route path="/" element={!user ? <Login /> : <Home />}></Route>
+        <Route
+          path="register"
+          element={!user ? <Register /> : <Home />}></Route>
+      </Routes>
     </div>
   );
 }

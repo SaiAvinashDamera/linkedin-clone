@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Register.css";
 import "./Buttons.css";
 import { registerAPI } from "./app/actions/actions";
+import { Link } from "react-router-dom";
 
 function Register() {
   const footer_links = [
@@ -110,7 +111,7 @@ function Register() {
               Continue with Google
             </div>
             <div className="register__signin">
-              Already on LinkedIn? <a>Sign in</a>
+              Already on LinkedIn? <Link to="/">Sign in</Link>
             </div>
           </div>
 

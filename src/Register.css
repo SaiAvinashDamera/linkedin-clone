@@ -92,6 +92,8 @@
 }
 
 .register__signin {
+  color: black;
+  text-decoration: none;
   margin-block: 10px;
   font-size: 14px;
 }

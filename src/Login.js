@@ -4,6 +4,7 @@ import LoginHeader from "./LoginHeader";
 import "./Buttons.css";
 import LinksSection from "./LinksSection";
 import { signInAPI } from "./app/actions/actions";
+import { Link } from "react-router-dom";
 
 function Login() {
   const links = [
@@ -130,7 +131,8 @@ function Login() {
             }}>
             Continue with Google
           </div>
-          <div
+          <Link
+            to="register"
             className="buttonColorBorder"
             style={{
               width: 330,
@@ -139,9 +141,10 @@ function Login() {
               marginBlock: 10,
               color: "#555",
               borderColor: "#555",
+              textDecoration: "none",
             }}>
             New to LinkedIn? Join now
-          </div>
+          </Link>
         </div>
 
         <div className="login__right">
