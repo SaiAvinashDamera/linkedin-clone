@@ -46,15 +46,19 @@ function App() {
     });
   }, []);
 
+  const componentSwitch = (user, Comp1, Comp2) => {
+    return !user ? <Comp1 /> : <Comp2 />;
+  };
+
   return (
     <div
       className="root"
       style={{ width: windowSize.width, height: windowSize.height }}>
       <Routes>
-        <Route path="/" element={!user ? <Login /> : <Home />}></Route>
+        <Route path="/" element={componentSwitch(user, Login, Home)}></Route>
         <Route
           path="register"
-          element={!user ? <Register /> : <Home />}></Route>
+          element={componentSwitch(user, Register, Home)}></Route>
       </Routes>
     </div>
   );
