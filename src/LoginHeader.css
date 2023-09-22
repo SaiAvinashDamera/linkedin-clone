@@ -1,6 +1,11 @@
 .header {
   position: relative;
 }
+.header__right {
+  @media (max-width: 718px) {
+    display: none;
+  }
+}
 
 .iconDivider {
   border-left: 1px solid gray;

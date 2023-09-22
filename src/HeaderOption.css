@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin-right: 40px;
   color: #666;
   cursor: pointer;
@@ -11,13 +12,22 @@
   color: black;
 }
 
-.headerOption__title {
+.headerOption .headerOption__title {
   font-size: 14px;
   font-weight: 400;
+
+  @media (max-width: 750px) {
+    display: none;
+  }
 }
 
-.headerOption__icon {
+.headerOption .headerOption__icon {
   object-fit: contain;
   height: 25px !important;
   width: 25px !important;
+
+  @media (max-width: 750px) {
+    height: 30px !important;
+    width: 30px !important;
+  }
 }

@@ -30,7 +30,8 @@ function Header() {
             alt=""
           />
           <div className="header__search">
-            <SearchIcon />
+            <SearchIcon className="search__icon" />
+            <p>Search</p>
             <input type="text" placeholder="Search" />
           </div>
         </div>

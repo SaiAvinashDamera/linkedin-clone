@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import Header from "./Header";
-import Sidebar from "./Sidebar";
-import Feed from "./Feed";
 import { useDispatch, useSelector } from "react-redux";
 import Login from "./Login";
 import { login, logout, selectUser } from "./features/userSlice";
-import Widgets from "./Widgets";
 import { auth } from "./firebase";
+import Register from "./Register";
+import PostModal from "./PostModal";
+import Home from "./Home";
 
 function App() {
   const user = useSelector(selectUser);
@@ -49,21 +48,7 @@ function App() {
     <div
       className="root"
       style={{ width: windowSize.width, height: windowSize.height }}>
-      {!user ? (
-        <Login />
-      ) : (
-        <div className="app">
-          <Header />
-          {/* App Body */}
-          <div className="app__body">
-            <Sidebar />
-            {/* Feed */}
-            <Feed />
-            {/* Widgets */}
-            <Widgets />
-          </div>
-        </div>
-      )}
+      {!user ? <Login /> : <Home />}
     </div>
   );
 }

@@ -18,11 +18,31 @@ function LoginHeader() {
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png" />
         </div>
         <div className="header__right">
-          <HeaderOption Icon={TrendingUpIcon} Title={"Trending"} />
-          <HeaderOption Icon={NewspaperIcon} Title={"Articles"} />
-          <HeaderOption Icon={SupervisorAccountIcon} Title={"People"} />
-          <HeaderOption Icon={CastForEducationIcon} Title={"Learning"} />
-          <HeaderOption Icon={BusinessCenterIcon} Title={"Jobs"} />
+          <HeaderOption
+            className="header__icon"
+            Icon={TrendingUpIcon}
+            Title={"Trending"}
+          />
+          <HeaderOption
+            className="header__icon"
+            Icon={NewspaperIcon}
+            Title={"Articles"}
+          />
+          <HeaderOption
+            className="header__icon"
+            Icon={SupervisorAccountIcon}
+            Title={"People"}
+          />
+          <HeaderOption
+            className="header__icon"
+            Icon={CastForEducationIcon}
+            Title={"Learning"}
+          />
+          <HeaderOption
+            className="header__icon"
+            Icon={BusinessCenterIcon}
+            Title={"Jobs"}
+          />
           <div className="iconDivider"></div>
           <div className="buttonTouchableOpacity" style={{ marginLeft: 10 }}>
             <p>Join now</p>

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import "./Register.css";
 import "./Buttons.css";
-import { auth } from "./firebase";
-import { login } from "./features/userSlice";
-import { useDispatch } from "react-redux";
+import { registerAPI } from "./app/actions/actions";
 
 function Register() {
   const footer_links = [
@@ -22,32 +20,32 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const register = () => {
-    if (!name) {
-      alert("Please enter a full name");
-    } else {
-      auth
-        .createUserWithEmailAndPassword(email, password)
-        .then((userAuth) => {
-          userAuth.user
-            .updateProfile({
-              displayName: name,
-            })
-            .then(() => {
-              dispatch(
-                login({
-                  email: userAuth.user.email,
-                  uid: userAuth.user.uid,
-                  displayName: name,
-                })
-              );
-            });
-        })
-        .catch((error) => alert(error.message));
-    }
-  };
+  // const register = () => {
+  //   if (!name) {
+  //     alert("Please enter a full name");
+  //   } else {
+  //     auth
+  //       .createUserWithEmailAndPassword(email, password)
+  //       .then((userAuth) => {
+  //         userAuth.user
+  //           .updateProfile({
+  //             displayName: name,
+  //           })
+  //           .then(() => {
+  //             dispatch(
+  //               login({
+  //                 email: userAuth.user.email,
+  //                 uid: userAuth.user.uid,
+  //                 displayName: name,
+  //               })
+  //             );
+  //           });
+  //       })
+  //       .catch((error) => alert(error.message));
+  //   }
+  // };
 
   return (
     <div className="register">
@@ -93,9 +91,7 @@ function Register() {
             <div
               className="buttonSolid"
               style={{ width: 330, padding: 15, fontSize: 16 }}
-              onClick={() => {
-                register();
-              }}>
+              onClick={registerAPI(name, email, password)}>
               Agree & Join
             </div>
             <div className="login__divider">&emsp;or&emsp;</div>

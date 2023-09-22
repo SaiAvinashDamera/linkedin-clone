@@ -3,12 +3,18 @@
   justify-content: flex-end;
   width: 95%;
   max-width: 72em;
+  @media (max-width: 718px) {
+    flex-direction: column;
+  }
 }
 
 .section__col {
   display: flex;
   flex-direction: column;
   width: 14em;
+  @media (max-width: 718px) {
+    margin-top: 20px;
+  }
 }
 
 .section__col > h4 {

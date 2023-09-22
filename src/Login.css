@@ -4,6 +4,7 @@
   justify-content: space-between;
   background-color: white;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .loginbody {
@@ -11,11 +12,20 @@
   max-width: 72em;
   width: 95%;
   margin-block: 20px;
+  @media (max-width: 718px) {
+    flex-direction: column;
+  }
 }
 
 .login__left {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+.login__left > form {
+  @media (max-width: 718px) {
+    width: 100%;
+  }
 }
 
 .login__left > form > p {
@@ -35,6 +45,12 @@
   border-radius: 5px;
   cursor: pointer;
   border-width: 1px;
+
+  @media (max-width: 718px) {
+    width: 95%;
+    height: 60px;
+    min-width: 200px;
+  }
 }
 
 .login__left > form > input:hover {
@@ -47,6 +63,9 @@
   font-size: 55px;
   font-weight: 100;
   margin-bottom: 20px;
+  @media (max-width: 718px) {
+    font-size: 30px;
+  }
 }
 
 .login__forgotPassword {
@@ -99,13 +118,16 @@
   display: flex;
   align-items: center;
   width: 30em;
-  flex-shrink: 1;
 }
 
 .login__right > img {
   height: 65%;
-  overflow: clip;
+  object-fit: cover;
   -webkit-user-drag: none;
+
+  @media (max-width: 718px) {
+    height: 30em;
+  }
 }
 
 /* Bottom */
@@ -118,6 +140,10 @@
   position: relative;
   width: 100%;
   background-color: #f3f2ef;
+
+  @media (max-width: 718px) {
+    align-items: start;
+  }
 }
 
 .bottom__links {
@@ -125,19 +151,24 @@
   width: 95%;
   max-width: 72em;
   margin-block: 20px;
+  @media (max-width: 718px) {
+    flex-direction: column;
+    margin-left: 20px;
+  }
 }
 
 .bottom__logo {
   display: flex;
   justify-content: flex-start;
   height: 22px;
+  width: 81px;
+  margin-right: 10px;
   align-items: center;
-  margin-inline: 20px;
 }
 
 .footer {
   display: flex;
-  width: 100%;
+  height: fit-content;
   justify-content: center;
   background-color: white;
 
@@ -153,11 +184,16 @@
   width: 95%;
   margin-top: 10px;
   margin-bottom: 20px;
+
+  @media (max-width: 718px) {
+    flex-wrap: wrap;
+  }
 }
 
 .footerContainer > a {
   font-weight: 600;
   cursor: pointer;
+  margin-inline: 10px;
 }
 
 .footerContainer > a:hover {

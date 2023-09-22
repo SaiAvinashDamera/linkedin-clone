@@ -8,14 +8,33 @@ import VerticalSplitIcon from "@mui/icons-material/VerticalSplit";
 import FeedOption from "./FeedOption";
 import Post from "./Post";
 import { db, auth } from "./firebase";
-import firebase from "firebase/compat/app";
-import { useSelector } from "react-redux";
-import { selectUser } from "./features/userSlice";
+import PostModal from "./PostModal";
 
 function Feed() {
-  const user = useSelector(selectUser);
-  const [input, setInput] = useState("");
+  const [showModal, setShowModal] = useState("close");
   const [posts, setPosts] = useState([]);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    // if (e.target !== e.currentTarget) {
+    //   return;
+    // }
+
+    switch (showModal) {
+      case "open":
+        setShowModal("close");
+        break;
+
+      case "close":
+        setShowModal("open");
+        break;
+
+      default:
+        setShowModal("close");
+        break;
+    }
+  };
 
   useEffect(() => {
     db.collection("posts")
@@ -30,22 +49,23 @@ function Feed() {
       });
   }, []);
 
-  const sendPost = (e) => {
-    e.preventDefault();
+  // const sendPost = (e) => {
+  //   e.preventDefault();
 
-    db.collection("posts").add({
-      name: user.displayName,
-      description: user.email,
-      message: input,
-      photoUrl: "",
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
+  //   db.collection("posts").add({
+  //     name: user.displayName,
+  //     description: user.email,
+  //     message: input,
+  //     photoUrl: "",
+  //     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+  //   });
 
-    setInput("");
-  };
+  //   setInput("");
+  // };
 
   return (
     <div className="feed">
+      <PostModal showModal={showModal} handleClick={handleClick} />
       <div className="feed__sharebox">
         <div className="feed__top">
           <Avatar
@@ -53,8 +73,9 @@ function Feed() {
             src="https://i.seadn.io/gae/y2QcxTcchVVdUGZITQpr6z96TXYOV0p3ueLL_1kIPl7s-hHn3-nh8hamBDj0GAUNAndJ9_Yuo2OzYG5Nic_hNicPq37npZ93T5Nk-A?auto=format&dpr=1&w=1000"
           />
           <div className="feed__inputContainer">
-            <div className="feed__input">
-              <form>
+            <div onClick={handleClick} className="feed__input">
+              Start a post
+              {/* <form>
                 <input
                   type="text"
                   value={input}
@@ -64,7 +85,7 @@ function Feed() {
                 <button onClick={sendPost} type="submit">
                   Send
                 </button>
-              </form>
+              </form> */}
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Post.css";
 import { Avatar } from "@mui/material";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
@@ -8,10 +8,43 @@ import SendIcon from "@mui/icons-material/Send";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
 import FeedOption from "./FeedOption";
+import PostViewerModal from "./PostViewerModal";
 
 function Post({ name, description, photoUrl, message }) {
+  const [showViewerModal, setShowViewerModal] = useState("close");
+
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    // if (e.target !== e.currentTarget) {
+    //   return;
+    // }
+
+    switch (showViewerModal) {
+      case "open":
+        setShowViewerModal("close");
+        break;
+
+      case "close":
+        setShowViewerModal("open");
+        break;
+
+      default:
+        setShowViewerModal("close");
+        break;
+    }
+  };
+
   return (
     <div className="post">
+      <PostViewerModal
+        showViewerModal={showViewerModal}
+        handleClick={handleClick}
+        name={name}
+        description={description}
+        message={message}
+        photoUrl={photoUrl}
+      />
       <div className="post__header">
         <Avatar src="https://i.seadn.io/gae/y2QcxTcchVVdUGZITQpr6z96TXYOV0p3ueLL_1kIPl7s-hHn3-nh8hamBDj0GAUNAndJ9_Yuo2OzYG5Nic_hNicPq37npZ93T5Nk-A?auto=format&dpr=1&w=1000" />
         <div className="post__info">
@@ -22,6 +55,11 @@ function Post({ name, description, photoUrl, message }) {
 
       <div className="post__body">
         <p>{message}</p>
+        {photoUrl !== "" && (
+          <div onClick={handleClick} className="post__img">
+            <img src={photoUrl} style={{ paddingTop: 10, width: "100%" }} />
+          </div>
+        )}
       </div>
 
       <div className="__divider"></div>

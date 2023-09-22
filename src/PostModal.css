@@ -1,0 +1,147 @@
+.postmodal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  color: black;
+  background-color: rgba(0, 0, 0, 0.8);
+  animation: fadeIn 0.3s;
+}
+
+.postmodal__content {
+  width: 100%;
+  max-width: 700px;
+  max-height: 90%;
+  overflow: initial;
+  border-radius: 10px;
+  background-color: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  top: 32px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.postmodal__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pmheader__left {
+  display: flex;
+  padding: 10px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.pmheader__left:hover {
+  background-color: #eee;
+}
+
+.pmheader__info {
+  margin-left: 10px;
+}
+
+.pmheader__right {
+  display: flex;
+  height: fit-content;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.pmheader__right:hover {
+  background-color: #eee;
+}
+
+.postmodal__body > textarea {
+  font-size: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  height: 140px;
+  width: 92%;
+  margin-block: 20px;
+  margin-inline: 20px;
+  border: none;
+  resize: none;
+}
+
+.postmodal__body > textarea:focus {
+  border: none;
+}
+
+.pmbody__uploadimage {
+  max-height: 500px;
+  height: 100%;
+  overflow: auto;
+}
+
+.pmbody__uploadimage > img {
+  width: 100%;
+}
+
+.pmbody__buttons {
+  display: flex;
+  padding-inline: 10px;
+  padding-top: 10px;
+}
+
+.pmbody__button {
+  display: flex;
+  margin-right: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  width: fit-content;
+  border-radius: 50px;
+  background-color: #f3f2ef;
+  z-index: 4;
+}
+
+.pmbody__button:hover {
+  box-shadow: 0px 5px 5px #0006;
+}
+
+.pmbody__alt {
+  visibility: hidden;
+  position: absolute;
+  padding: 10px;
+  margin-top: -130px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 3px 5px 2px #0004;
+
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.pmbody__button:hover .pmbody__alt {
+  visibility: visible;
+  transition: 500ms ease;
+  transform: translateY(8px);
+}
+
+.postmodal__submit {
+  display: flex;
+  justify-content: end;
+  margin-right: 10px;
+  margin-bottom: 4px;
+}
+
+.pmsubmit__button {
+  width: fit-content;
+  padding-inline: 16px;
+  padding-block: 8px;
+  border: none;
+}
+
+.pmsubmit__button:disabled {
+  background-color: #ccc;
+  color: #777;
+  cursor: not-allowed;
+}
