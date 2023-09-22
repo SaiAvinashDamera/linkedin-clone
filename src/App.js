@@ -5,7 +5,6 @@ import Login from "./Login";
 import { login, logout, selectUser } from "./features/userSlice";
 import { auth } from "./firebase";
 import Register from "./Register";
-import PostModal from "./PostModal";
 import Home from "./Home";
 
 import { Routes, Route } from "react-router-dom";

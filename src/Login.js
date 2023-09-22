@@ -81,7 +81,7 @@ function Login() {
   //         })
   //       );
   //     })
-  //     .catch((error) => alert(error));
+  //     .catch((error) => console.log(error));
   // };
 
   return (
@@ -148,10 +148,7 @@ function Login() {
         </div>
 
         <div className="login__right">
-          <img
-            src="https://static.licdn.com/aero-v1/sc/h/dxf91zhqd2z6b0bwg85ktm5s4"
-            alt=""
-          />
+          <img src="https://static.licdn.com/aero-v1/sc/h/dxf91zhqd2z6b0bwg85ktm5s4" />
         </div>
       </div>
 

@@ -7,7 +7,7 @@ import VerticalSplitIcon from "@mui/icons-material/VerticalSplit";
 
 import FeedOption from "./FeedOption";
 import Post from "./Post";
-import { db, auth } from "./firebase";
+import { db } from "./firebase";
 import PostModal from "./PostModal";
 
 function Feed() {

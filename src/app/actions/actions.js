@@ -15,14 +15,14 @@ export function signInAPI(email, password) {
           })
         );
       })
-      .catch((error) => alert(error));
+      .catch((error) => console.log(error));
   };
 }
 
 export function registerAPI(name, email, password) {
   return (dispatch) => {
     if (!name) {
-      alert("Please enter a full name");
+      console.log("Please enter a full name");
     } else {
       auth
         .createUserWithEmailAndPassword(email, password)
@@ -41,7 +41,7 @@ export function registerAPI(name, email, password) {
               );
             });
         })
-        .catch((error) => alert(error.message));
+        .catch((error) => console.log(error.message));
     }
   };
 }
@@ -83,25 +83,3 @@ export const postArticleAPI = (payload) => {
     });
   }
 };
-
-const post = async (payload, downloadURL) => {
-  db.collection("posts").add({
-    name: payload.user.displayName,
-    description: payload.user.email,
-    message: payload.message,
-    photoUrl: downloadURL,
-    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-  });
-};
-
-//   e.preventDefault();
-
-//   db.collection("posts").add({
-//     name: user.displayName,
-//     description: user.email,
-//     message: input,
-//     photoUrl: "",
-//     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-//   });
-
-//   setInput("");

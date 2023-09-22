@@ -25,7 +25,7 @@ function Register() {
 
   // const register = () => {
   //   if (!name) {
-  //     alert("Please enter a full name");
+  //     console.log("Please enter a full name");
   //   } else {
   //     auth
   //       .createUserWithEmailAndPassword(email, password)
@@ -44,7 +44,7 @@ function Register() {
   //             );
   //           });
   //       })
-  //       .catch((error) => alert(error.message));
+  //       .catch((error) => console.log(error.message));
   //   }
   // };
 
