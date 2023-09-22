@@ -11,6 +11,9 @@ import firebase from "firebase/compat/app";
 import { selectUser } from "./features/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { postArticleAPI } from "./app/actions/actions";
+import Editor from "./Editor";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 const PostModal = (props) => {
   const user = useSelector(selectUser);
@@ -82,12 +85,21 @@ const PostModal = (props) => {
               </div>
             </div>
             <div className="postmodal__body">
-              <textarea
+              <div className="pmbody__textarea">
+                <ReactQuill
+                  value={editorText}
+                  onChange={setEditorText}
+                  placeholder={"What do you want to talk about?"}
+                />
+              </div>
+
+              {/* <Editor /> */}
+              {/* <textarea
                 value={editorText}
                 onChange={(e) => setEditorText(e.target.value)}
                 placeholder="What do you want to talk about?"
                 autoFocus={true}
-              />
+              /> */}
               <div className="pmbody__uploadimage">
                 {shareImage && <img src={URL.createObjectURL(shareImage)} />}
               </div>

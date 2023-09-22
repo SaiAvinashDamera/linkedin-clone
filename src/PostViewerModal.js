@@ -43,7 +43,11 @@ function PostViewerModal(props) {
                 </div>
               </div>
               <div className="postviewer__body">
-                <div className="message">{props.message}</div>
+                <div
+                  style={{ fontSize: 14, fontWeight: 400 }}
+                  dangerouslySetInnerHTML={{ __html: props.message }}
+                />
+                {/* <div className="message">{props.message}</div> */}
               </div>
             </div>
           </div>

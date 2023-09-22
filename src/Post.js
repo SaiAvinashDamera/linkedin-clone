@@ -5,10 +5,10 @@ import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import RepeatIcon from "@mui/icons-material/Repeat";
 import SendIcon from "@mui/icons-material/Send";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
 import FeedOption from "./FeedOption";
 import PostViewerModal from "./PostViewerModal";
+import ReactMarkdown from "react-markdown";
 
 function Post({ name, description, photoUrl, message }) {
   const [showViewerModal, setShowViewerModal] = useState("close");
@@ -54,7 +54,10 @@ function Post({ name, description, photoUrl, message }) {
       </div>
 
       <div className="post__body">
-        <p>{message}</p>
+        <div
+          style={{ fontSize: 14, fontWeight: 400 }}
+          dangerouslySetInnerHTML={{ __html: message }}
+        />
         {photoUrl !== "" && (
           <div onClick={handleClick} className="post__img">
             <img src={photoUrl} style={{ paddingTop: 10, width: "100%" }} />

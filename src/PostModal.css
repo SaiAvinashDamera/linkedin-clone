@@ -23,6 +23,7 @@
   top: 32px;
   margin: 0 auto;
   padding: 10px;
+  overflow: auto;
 }
 
 .postmodal__header {
@@ -60,6 +61,12 @@
   background-color: #eee;
 }
 
+.pmbody__textarea {
+  margin-top: 10px;
+  max-height: 300px;
+  overflow: auto;
+}
+
 .postmodal__body > textarea {
   font-size: 20px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -76,9 +83,9 @@
 }
 
 .pmbody__uploadimage {
-  max-height: 500px;
   height: 100%;
   overflow: auto;
+  margin-top: 10px;
 }
 
 .pmbody__uploadimage > img {

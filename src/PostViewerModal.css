@@ -16,7 +16,6 @@
   width: 100%;
   max-width: 1128px;
   height: 90%;
-  overflow: hidden;
   border-radius: 10px;
   background-color: white;
   position: relative;
@@ -48,9 +47,10 @@
 }
 
 .postviewer__right {
+  display: flex;
+  flex-direction: column;
   max-width: 400px;
   min-width: 202px;
-
   padding: 10px;
 }
 
@@ -92,4 +92,6 @@
 
 .postviewer__body {
   padding: 5px;
+  height: 100%;
+  overflow: auto;
 }
