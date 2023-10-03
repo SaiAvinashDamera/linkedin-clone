@@ -26,6 +26,7 @@ function App() {
   };
 
   useEffect(() => {
+    document.title = "Mockup | LinkedIn";
     window.addEventListener("resize", handleResize, false);
 
     auth.onAuthStateChanged((userAuth) => {
@@ -45,14 +46,24 @@ function App() {
     });
   }, []);
 
-  const componentSwitch = (user, Comp1, Comp2) => {
-    return !user ? <Comp1 /> : <Comp2 />;
+  const componentSwitch = (condition, Comp1, Comp2) => {
+    return !condition ? <Comp1 /> : <Comp2 />;
   };
 
   return (
     <div
       className="root"
       style={{ width: windowSize.width, height: windowSize.height }}>
+      <div
+        style={{
+          textAlign: "center",
+          fontWeight: 400,
+          padding: 2,
+          backgroundColor: "white",
+        }}>
+        **DISCLAIMER: This clone is made just for learning and not for
+        commercial purposes. I do not own any of the logos, UI/UX**
+      </div>
       <Routes>
         <Route path="/" element={componentSwitch(user, Login, Home)}></Route>
         <Route
